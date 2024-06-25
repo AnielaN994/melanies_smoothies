@@ -53,7 +53,8 @@ if ingredients_list:
 	    
 	    fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 	    
-    #st.write(fruityvice_response)
+	    #df = pd.json_normalize(fruityvice_response)
+    st.write(fruityvice_response)
 
 
 
