@@ -46,14 +46,13 @@ if ingredients_list:
 	    
 	    st.subheader(fruit_chosen + ' Nutrition Information')
 	    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + search_on)
-        
-        data = fruityvice_response.json()
-        df = pd.json_normalize(data)
-        
-        # Select specific columns to display
-        columns_to_display = ['name', 'family', 'order', 'nutritions.carbohydrates', 'nutritions.protein', 'nutritions.fat']
-        filtered_df = df[columns_to_display]
-        # Display the filtered DataFrame in Streamlit
+	    data = fruityvice_response.json()
+	    df = pd.json_normalize(data)
+	    
+	    # Select specific columns to display
+	    columns_to_display = ['name', 'family', 'order', 'nutritions.carbohydrates', 'nutritions.protein', 'nutritions.fat']
+            filtered_df = df[columns_to_display]
+            # Display the filtered DataFrame in Streamlit
 	    st.dataframe(filtered_df, use_container_width=True)
         
 	    #fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
