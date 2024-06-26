@@ -50,7 +50,7 @@ if ingredients_list:
 	    df = pd.json_normalize(data)
 	    
 	    # Select specific columns to display
-	    columns_to_display = ['name', 'family', 'order', 'nutritions.calories', 'nutritions.fat', 'nutritions.sugar', 'nutritions.carbohydrates', 'nutritions.protein', ]
+	    columns_to_display = ['family', 'order', 'nutritions.calories', 'nutritions.fat', 'nutritions.sugar', 'nutritions.carbohydrates', 'nutritions.protein', ]
 	    filtered_df = df[columns_to_display]
             # Display the filtered DataFrame in Streamlit
 	    st.dataframe(filtered_df, use_container_width=True)
