@@ -45,7 +45,7 @@ def fetch_and_filter_data(search_on, columns):
        fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
    
        # Parse the JSON response
-       data = response.json()
+       data = fruityvice_response.json()
     
        # Convert JSON data to a DataFrame
        df = pd.json_normalize(data)
