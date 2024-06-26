@@ -46,22 +46,21 @@ if ingredients_list:
 	    search_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
 	    #st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
 	    
-	st.subheader(fruit_chosen + ' Nutrition Information')
-	fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + search_on)
-
-	if fruityvice_response.status_code == 200:
-            # Parse the JSON response
-            data = fruityvice_response.json()
-            df = pd.json_normalize(data)
+	    st.subheader(fruit_chosen + ' Nutrition Information')
+	    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + search_on)
+	    if fruityvice_response.status_code == 200:
+		    # Parse the JSON response
+		    data = fruityvice_response.json()
+		    df = pd.json_normalize(data)
+		    
+		    # Select specific columns to display
+		    columns_to_display = ['name', 'family', 'order', 'nutritions.carbohydrates', 'nutritions.protein', 'nutritions.fat']
+                    filtered_df = df[columns_to_display]
             
-            # Select specific columns to display
-            columns_to_display = ['name', 'family', 'order', 'nutritions.carbohydrates', 'nutritions.protein', 'nutritions.fat']
-            filtered_df = df[columns_to_display]
-            
-            # Display the filtered DataFrame in Streamlit
-            st.dataframe(filtered_df, use_container_width=True)
-        else:
-            st.error("Failed to fetch data for " + fruit_chosen)
+                    # Display the filtered DataFrame in Streamlit
+                    st.dataframe(filtered_df, use_container_width=True)
+            else:
+                    st.error("Failed to fetch data for " + fruit_chosen)
 	
 	    #fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 	    
