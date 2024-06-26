@@ -54,18 +54,17 @@ if ingredients_list:
 	    fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 
             # assign each column of the row returned to its own variable
-	    family = pd_df['family'].iloc[0])+'0'
-            order = pd_df['order'].iloc[0]
-            calories = pd_df['nutritions.calories'].iloc[0]
-            fat = pd_df['nutritions.fat'].iloc[0]
-            sugar = pd_df['nutritions.sugar'].iloc[0]
-            carbohydrates = pd_df['nutritions.carbohydrates'].iloc[0]
-            protein = pd_df['nutritions.protein'].iloc[0]
-
-            # display the info on the page
-            st.markdown('**Family:** '+ family)
-            st.markdown('**Order:** ' + order)
-            st.markdown('**Calories:** ' + nutritions.calories)
+	    family = pd_df['family'].iloc[0]+'0'
+	    order = pd_df['order'].iloc[0]
+	    calories = pd_df['nutritions.calories'].iloc[0]
+	    fat = pd_df['nutritions.fat'].iloc[0]
+	    sugar = pd_df['nutritions.sugar'].iloc[0]
+	    carbohydrates = pd_df['nutritions.carbohydrates'].iloc[0]
+	    protein = pd_df['nutritions.protein'].iloc[0]
+	    # display the info on the page
+	    st.markdown('**Family:** '+ family)
+	    st.markdown('**Order:** ' + order)
+	    st.markdown('**Calories:** ' + nutritions.calories)
 
 
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
