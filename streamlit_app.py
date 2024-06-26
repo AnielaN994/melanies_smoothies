@@ -1,3 +1,4 @@
+
 # Import python packages
 import streamlit as st
 import pandas as pd
@@ -39,6 +40,21 @@ if len(ingredients_list) > 5:
     st.warning('You can only select up to 5 options. Please deselect some options.')
 
 
+def fetch_and_filter_data(search_on, columns):
+       fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + search_on)
+       fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
+   
+       # Parse the JSON response
+       data = response.json()
+    
+       # Convert JSON data to a DataFrame
+       df = pd.json_normalize(data)
+		
+       # Select only the desired columns
+       filtered_df = df[columns]
+		
+       return filtered_df
+
 if ingredients_list:
     ingredients_string = ''
 
@@ -52,9 +68,29 @@ if ingredients_list:
 	    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + search_on)
 	    
 	    fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
+		
+		# Parse the JSON response
+		data = response.json()
+    
+		# Convert JSON data to a DataFrame
+		df = pd.json_normalize(data)
+		
+		# Select only the desired columns
+		filtered_df = df[columns]
+		
+		#return filtered_df
+	
+		# Columns to display
+		columns_to_display = ['family', 'order', 'genus', 'nutritions']  # Replace with the desired columns
+    
+		# Fetch and filter the data
+		filtered_data = fetch_and_filter_data(search_on, columns_to_display)
+    
+		# Display the filtered data in Streamlit
+		st.dataframe(filtered_data, use_container_width=True)
 	    
 	    #df = pd.json_normalize(fruityvice_response)
-    #st.write(fruityvice_response)
+	#st.write(fruityvice_response)
 
 
 
