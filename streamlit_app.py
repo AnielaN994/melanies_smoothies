@@ -53,8 +53,8 @@ if ingredients_list:
 	    
 	    fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 
-            # assign each column of the row returned to its own variable 
-            family = pd_df['family'].iloc[0])+'0'
+            # assign each column of the row returned to its own variable
+	    family = pd_df['family'].iloc[0])+'0'
             order = pd_df['order'].iloc[0]
             calories = pd_df['nutritions.calories'].iloc[0]
             fat = pd_df['nutritions.fat'].iloc[0]
