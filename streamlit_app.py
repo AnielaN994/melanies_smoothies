@@ -69,25 +69,25 @@ if ingredients_list:
 	    
 	    fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 		
-		# Parse the JSON response
-		data = response.json()
+	    # Parse the JSON response
+	    data = response.json()
     
-		# Convert JSON data to a DataFrame
-		df = pd.json_normalize(data)
+	    # Convert JSON data to a DataFrame
+	    df = pd.json_normalize(data)
 		
-		# Select only the desired columns
-		filtered_df = df[columns]
+	    # Select only the desired columns
+	    filtered_df = df[columns]
 		
-		#return filtered_df
+	    #return filtered_df
 	
-		# Columns to display
-		columns_to_display = ['family', 'order', 'genus', 'nutritions']  # Replace with the desired columns
+	    # Columns to display
+	    columns_to_display = ['family', 'order', 'genus', 'nutritions']  # Replace with the desired columns
     
-		# Fetch and filter the data
-		filtered_data = fetch_and_filter_data(search_on, columns_to_display)
+	    # Fetch and filter the data
+	    filtered_data = fetch_and_filter_data(search_on, columns_to_display)
     
-		# Display the filtered data in Streamlit
-		st.dataframe(filtered_data, use_container_width=True)
+	    # Display the filtered data in Streamlit
+	    st.dataframe(filtered_data, use_container_width=True)
 	    
 	    #df = pd.json_normalize(fruityvice_response)
 	#st.write(fruityvice_response)
