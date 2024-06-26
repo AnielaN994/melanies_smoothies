@@ -60,19 +60,19 @@ if ingredients_list:
         #table_prod_data = session.sql("select file_name, price, size_list, upsell_product_desc, file_url from catalog_for_website where color_or_style = '" + option + "';")
         #pd_df = table_prod_data.to_pandas() 
 
-        # assign each column of the row returned to its own variable 
-        family = pd_df['family'].iloc[0])+'0'
-        order = pd_df['order'].iloc[0]
-        calories = pd_df['nutritions.calories'].iloc[0]
-        fat = pd_df['nutritions.fat'].iloc[0]
-        sugar = pd_df['nutritions.sugar'].iloc[0]
-        carbohydrates = pd_df['nutritions.carbohydrates'].iloc[0]
-        protein = pd_df['nutritions.protein'].iloc[0]
+            # assign each column of the row returned to its own variable 
+            family = pd_df['family'].iloc[0])+'0'
+            order = pd_df['order'].iloc[0]
+            calories = pd_df['nutritions.calories'].iloc[0]
+            fat = pd_df['nutritions.fat'].iloc[0]
+            sugar = pd_df['nutritions.sugar'].iloc[0]
+            carbohydrates = pd_df['nutritions.carbohydrates'].iloc[0]
+            protein = pd_df['nutritions.protein'].iloc[0]
 
         # display the info on the page
-        st.markdown('**Family:** '+ family)
-        st.markdown('**Order:** ' + order)
-        st.markdown('**Calories:** ' + nutritions.calories)
+            st.markdown('**Family:** '+ family)
+            st.markdown('**Order:** ' + order)
+            st.markdown('**Calories:** ' + nutritions.calories)
 
 
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
