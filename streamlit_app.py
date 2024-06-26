@@ -58,9 +58,9 @@ if ingredients_list:
 		    filtered_df = df[columns_to_display]
             
                     # Display the filtered DataFrame in Streamlit
-                    st.dataframe(filtered_df, use_container_width=True)
-            else:
-                    st.error("Failed to fetch data for " + fruit_chosen)
+	    	    st.dataframe(filtered_df, use_container_width=True)
+ 	    else:
+		    st.error("Failed to fetch data for " + fruit_chosen)
 	
 	    #fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 	    
