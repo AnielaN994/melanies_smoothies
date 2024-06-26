@@ -52,13 +52,6 @@ if ingredients_list:
 	    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + search_on)
 	    
 	    fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
-	    
-	    #df = pd.json_normalize(fruityvice_response)
-        #st.write(fruityvice_response)
-        # use the color selected to go back and get all the info from the database
-        
-        #table_prod_data = session.sql("select file_name, price, size_list, upsell_product_desc, file_url from catalog_for_website where color_or_style = '" + option + "';")
-        #pd_df = table_prod_data.to_pandas() 
 
             # assign each column of the row returned to its own variable 
             family = pd_df['family'].iloc[0])+'0'
@@ -69,7 +62,7 @@ if ingredients_list:
             carbohydrates = pd_df['nutritions.carbohydrates'].iloc[0]
             protein = pd_df['nutritions.protein'].iloc[0]
 
-        # display the info on the page
+            # display the info on the page
             st.markdown('**Family:** '+ family)
             st.markdown('**Order:** ' + order)
             st.markdown('**Calories:** ' + nutritions.calories)
